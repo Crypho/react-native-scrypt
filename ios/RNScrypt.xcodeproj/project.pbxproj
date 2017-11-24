@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		744DDEE51FC708D70057C1C8 /* RNScrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 744DDEE41FC708D70057C1C8 /* RNScrypt.m */; };
 		744DDEE61FC708D70057C1C8 /* RNScrypt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 744DDEE31FC708D70057C1C8 /* RNScrypt.h */; };
+		74FBA3AA1FC80C2C00E3A2E3 /* crypto_scrypt-check.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3951FC80C2B00E3A2E3 /* crypto_scrypt-check.c */; };
+		74FBA3AB1FC80C2C00E3A2E3 /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3971FC80C2B00E3A2E3 /* sha256.c */; };
+		74FBA3AC1FC80C2C00E3A2E3 /* crypto_scrypt-hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3991FC80C2B00E3A2E3 /* crypto_scrypt-hash.c */; };
+		74FBA3AD1FC80C2C00E3A2E3 /* b64.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA39C1FC80C2B00E3A2E3 /* b64.c */; };
+		74FBA3AE1FC80C2C00E3A2E3 /* crypto-mcf.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA39D1FC80C2B00E3A2E3 /* crypto-mcf.c */; };
+		74FBA3AF1FC80C2C00E3A2E3 /* slowequals.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA39F1FC80C2B00E3A2E3 /* slowequals.c */; };
+		74FBA3B01FC80C2C00E3A2E3 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3A11FC80C2B00E3A2E3 /* Makefile */; };
+		74FBA3B11FC80C2C00E3A2E3 /* crypto_scrypt-hexconvert.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3A31FC80C2C00E3A2E3 /* crypto_scrypt-hexconvert.c */; };
+		74FBA3B21FC80C2C00E3A2E3 /* crypto_scrypt-nosse.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3A71FC80C2C00E3A2E3 /* crypto_scrypt-nosse.c */; };
+		74FBA3B31FC80C2C00E3A2E3 /* crypto-scrypt-saltgen.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3A81FC80C2C00E3A2E3 /* crypto-scrypt-saltgen.c */; };
+		74FBA3B41FC80C2C00E3A2E3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 74FBA3A91FC80C2C00E3A2E3 /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +39,27 @@
 		744DDEE01FC708D70057C1C8 /* libRNScrypt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNScrypt.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		744DDEE31FC708D70057C1C8 /* RNScrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNScrypt.h; sourceTree = "<group>"; };
 		744DDEE41FC708D70057C1C8 /* RNScrypt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNScrypt.m; sourceTree = "<group>"; };
+		74FBA3951FC80C2B00E3A2E3 /* crypto_scrypt-check.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "crypto_scrypt-check.c"; path = "../libscrypt/crypto_scrypt-check.c"; sourceTree = "<group>"; };
+		74FBA3961FC80C2B00E3A2E3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../libscrypt/README.md; sourceTree = "<group>"; };
+		74FBA3971FC80C2B00E3A2E3 /* sha256.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sha256.c; path = ../libscrypt/sha256.c; sourceTree = "<group>"; };
+		74FBA3981FC80C2B00E3A2E3 /* crypto_scrypt-hexconvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "crypto_scrypt-hexconvert.h"; path = "../libscrypt/crypto_scrypt-hexconvert.h"; sourceTree = "<group>"; };
+		74FBA3991FC80C2B00E3A2E3 /* crypto_scrypt-hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "crypto_scrypt-hash.c"; path = "../libscrypt/crypto_scrypt-hash.c"; sourceTree = "<group>"; };
+		74FBA39A1FC80C2B00E3A2E3 /* slowequals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = slowequals.h; path = ../libscrypt/slowequals.h; sourceTree = "<group>"; };
+		74FBA39B1FC80C2B00E3A2E3 /* b64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = b64.h; path = ../libscrypt/b64.h; sourceTree = "<group>"; };
+		74FBA39C1FC80C2B00E3A2E3 /* b64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = b64.c; path = ../libscrypt/b64.c; sourceTree = "<group>"; };
+		74FBA39D1FC80C2B00E3A2E3 /* crypto-mcf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "crypto-mcf.c"; path = "../libscrypt/crypto-mcf.c"; sourceTree = "<group>"; };
+		74FBA39E1FC80C2B00E3A2E3 /* sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sha256.h; path = ../libscrypt/sha256.h; sourceTree = "<group>"; };
+		74FBA39F1FC80C2B00E3A2E3 /* slowequals.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = slowequals.c; path = ../libscrypt/slowequals.c; sourceTree = "<group>"; };
+		74FBA3A01FC80C2B00E3A2E3 /* libscrypt.version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = libscrypt.version; path = ../libscrypt/libscrypt.version; sourceTree = "<group>"; };
+		74FBA3A11FC80C2B00E3A2E3 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../libscrypt/Makefile; sourceTree = "<group>"; };
+		74FBA3A21FC80C2C00E3A2E3 /* sysendian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sysendian.h; path = ../libscrypt/sysendian.h; sourceTree = "<group>"; };
+		74FBA3A31FC80C2C00E3A2E3 /* crypto_scrypt-hexconvert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "crypto_scrypt-hexconvert.c"; path = "../libscrypt/crypto_scrypt-hexconvert.c"; sourceTree = "<group>"; };
+		74FBA3A41FC80C2C00E3A2E3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../libscrypt/LICENSE; sourceTree = "<group>"; };
+		74FBA3A51FC80C2C00E3A2E3 /* android.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = android.h; path = ../libscrypt/android.h; sourceTree = "<group>"; };
+		74FBA3A61FC80C2C00E3A2E3 /* libscrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libscrypt.h; path = ../libscrypt/libscrypt.h; sourceTree = "<group>"; };
+		74FBA3A71FC80C2C00E3A2E3 /* crypto_scrypt-nosse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "crypto_scrypt-nosse.c"; path = "../libscrypt/crypto_scrypt-nosse.c"; sourceTree = "<group>"; };
+		74FBA3A81FC80C2C00E3A2E3 /* crypto-scrypt-saltgen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "crypto-scrypt-saltgen.c"; path = "../libscrypt/crypto-scrypt-saltgen.c"; sourceTree = "<group>"; };
+		74FBA3A91FC80C2C00E3A2E3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../libscrypt/main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +76,27 @@
 		744DDED71FC708D70057C1C8 = {
 			isa = PBXGroup;
 			children = (
+				74FBA3A51FC80C2C00E3A2E3 /* android.h */,
+				74FBA39C1FC80C2B00E3A2E3 /* b64.c */,
+				74FBA39B1FC80C2B00E3A2E3 /* b64.h */,
+				74FBA3951FC80C2B00E3A2E3 /* crypto_scrypt-check.c */,
+				74FBA3991FC80C2B00E3A2E3 /* crypto_scrypt-hash.c */,
+				74FBA3A31FC80C2C00E3A2E3 /* crypto_scrypt-hexconvert.c */,
+				74FBA3981FC80C2B00E3A2E3 /* crypto_scrypt-hexconvert.h */,
+				74FBA3A71FC80C2C00E3A2E3 /* crypto_scrypt-nosse.c */,
+				74FBA39D1FC80C2B00E3A2E3 /* crypto-mcf.c */,
+				74FBA3A81FC80C2C00E3A2E3 /* crypto-scrypt-saltgen.c */,
+				74FBA3A61FC80C2C00E3A2E3 /* libscrypt.h */,
+				74FBA3A01FC80C2B00E3A2E3 /* libscrypt.version */,
+				74FBA3A41FC80C2C00E3A2E3 /* LICENSE */,
+				74FBA3A91FC80C2C00E3A2E3 /* main.c */,
+				74FBA3A11FC80C2B00E3A2E3 /* Makefile */,
+				74FBA3961FC80C2B00E3A2E3 /* README.md */,
+				74FBA3971FC80C2B00E3A2E3 /* sha256.c */,
+				74FBA39E1FC80C2B00E3A2E3 /* sha256.h */,
+				74FBA39F1FC80C2B00E3A2E3 /* slowequals.c */,
+				74FBA39A1FC80C2B00E3A2E3 /* slowequals.h */,
+				74FBA3A21FC80C2C00E3A2E3 /* sysendian.h */,
 				744DDEE31FC708D70057C1C8 /* RNScrypt.h */,
 				744DDEE41FC708D70057C1C8 /* RNScrypt.m */,
 				744DDEE11FC708D70057C1C8 /* Products */,
@@ -115,7 +168,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FBA3AF1FC80C2C00E3A2E3 /* slowequals.c in Sources */,
+				74FBA3AA1FC80C2C00E3A2E3 /* crypto_scrypt-check.c in Sources */,
+				74FBA3B31FC80C2C00E3A2E3 /* crypto-scrypt-saltgen.c in Sources */,
+				74FBA3B21FC80C2C00E3A2E3 /* crypto_scrypt-nosse.c in Sources */,
+				74FBA3AB1FC80C2C00E3A2E3 /* sha256.c in Sources */,
+				74FBA3AD1FC80C2C00E3A2E3 /* b64.c in Sources */,
 				744DDEE51FC708D70057C1C8 /* RNScrypt.m in Sources */,
+				74FBA3AC1FC80C2C00E3A2E3 /* crypto_scrypt-hash.c in Sources */,
+				74FBA3B41FC80C2C00E3A2E3 /* main.c in Sources */,
+				74FBA3B11FC80C2C00E3A2E3 /* crypto_scrypt-hexconvert.c in Sources */,
+				74FBA3B01FC80C2C00E3A2E3 /* Makefile in Sources */,
+				74FBA3AE1FC80C2C00E3A2E3 /* crypto-mcf.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

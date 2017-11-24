@@ -8,6 +8,7 @@
 
 
 #import "RNScrypt.h"
+#import "libscrypt.h"
 #import <Foundation/Foundation.h>
 
 #include <stdbool.h>
