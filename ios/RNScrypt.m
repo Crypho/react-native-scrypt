@@ -28,11 +28,35 @@ RCT_REMAP_METHOD(scrypt, scrypt:(NSString *)passwd
                  N:(NSUInteger)N
                  r:(NSUInteger)r
                  p:(NSUInteger)p
-                 size:(NSUInteger)size
+                 dkLen:(NSUInteger)dkLen
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-    resolve(@"Hello");
+    int i, success;
+    size_t saltLength;
+    uint8_t hashbuf[dkLen];
+    const uint8_t *parsedSalt;
+    uint8_t *buffer = NULL;
+    const char* passphrase = [passwd UTF8String];
+    parsedSalt = (const uint8_t *)[salt UTF8String];
+    saltLength = (size_t) [salt length];
+
+    @try {
+        success = libscrypt_scrypt((uint8_t *)passphrase, strlen(passphrase), parsedSalt, saltLength, N, r, p, hashbuf, dkLen);
+    }
+    @catch (NSException * e) {
+        NSError *error = [NSError errorWithDomain:@"com.crypho.scrypt" code:200 userInfo:@{@"Error reason": @"Error in scrypt"}];
+        reject(@"Failure in scrypt", @"Error", error);
+    }
+
+    NSMutableString *hexResult = [NSMutableString stringWithCapacity:dkLen * 2];
+    for(i = 0;i < dkLen; i++ )
+    {
+        [hexResult appendFormat:@"%02x", hashbuf[i]];
+    }
+    NSString *result = [NSString stringWithString: hexResult];
+    resolve(result);
+    free(buffer);
 }
 
 @end
