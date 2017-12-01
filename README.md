@@ -1,6 +1,20 @@
 
 # react-native-scrypt
 
+Non blocking and fast scrypt React native module powered by [libscrypt](https://github.com/technion/libscrypt).
+
+## Benchmark
+
+React Native 0.49 - JavaScriptCore
+
+| Platform | SJCL.misc.scrypt | react-native-scrypt |
+|:--------:|:----------------:|:-------------------:|
+| Android  | 68396ms          | 867ms               |
+| iOS      | ?ms              | ?ms                 |
+
+- Android: Nexus 5 Android 6.0.1
+- iOS: iPhone SE iOS 11.1.2
+
 ## Getting started
 
 `$ npm install react-native-scrypt --save`
@@ -37,6 +51,10 @@
 ## Usage
 ```javascript
 import scrypt from 'react-native-scrypt';
+
+// passwd must be a string
+// salt must be an array of bytes integers
+// see example/App.js
 
 const result = await scrypt(passwd, salt[, N=16384, r=8, p=1, dkLen=64])
 ```
