@@ -12,10 +12,7 @@ import {
   View
 } from 'react-native';
 import scrypt from 'react-native-scrypt'
-
-global.sjcl = require('sjcl')
-require('sjcl/core/scrypt')
-require('sjcl/core/codecBytes')
+import sjcl from './sjcl'
 
 const password = 'correct horse battery staple'
 const params = [16384, 8, 1]
@@ -29,8 +26,8 @@ function seeded() {
 }
 
 function LOG(...args) {
-  alert(...args)
-  // console.log(...args)
+  // alert(...args)
+  console.log(...args)
 }
 
 export default class App extends Component {

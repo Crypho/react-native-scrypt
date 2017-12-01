@@ -985,7 +985,7 @@ buffer-xor@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
 
-buffer@^4.3.0:
+buffer@^4.3.0, buffer@^4.9.1:
   version "4.9.1"
   resolved "https://registry.yarnpkg.com/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
   dependencies:
@@ -3661,6 +3661,13 @@ react-devtools-core@^2.5.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-randombytes@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-randombytes/-/react-native-randombytes-3.0.0.tgz#8327464f227a2c42d6ef013b7586b0ad4385ae61"
+  dependencies:
+    buffer "^4.9.1"
+    sjcl "^1.0.3"
+
 "react-native-scrypt@file:..":
   version "1.0.0"
 
@@ -4125,7 +4132,7 @@ simple-plist@^0.2.1:
     bplist-parser "0.1.1"
     plist "2.0.1"
 
-sjcl@^1.0.7:
+sjcl@^1.0.3, sjcl@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/sjcl/-/sjcl-1.0.7.tgz#32b365a50dc9bba26b88ba3c9df8ea34217d9f45"
 

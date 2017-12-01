@@ -10,6 +10,7 @@
 		"node-libs-browser": "^2.1.0",
 		"react": "16.0.0",
 		"react-native": "0.50.4",
+		"react-native-randombytes": "^3.0.0",
 		"react-native-scrypt": "file:..",
 		"sjcl": "^1.0.7"
 	},
