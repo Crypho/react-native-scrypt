@@ -1,0 +1,18 @@
+
+{
+  "name": "react-native-scrypt",
+  "version": "1.0.0",
+  "description": "libscrypt for React Native",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "scrypt",
+    "crypto"
+  ],
+  "license": "",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
