@@ -18,7 +18,7 @@ static jint callIntMethod(JNIEnv* env, jmethodID method, jobject integerObject, 
 static void throwException(JNIEnv* env, char *msg);
 
 JNIEXPORT jbyteArray JNICALL
-Java_com_reactlibrary_RNScryptModule_scryptBridgeJNI( JNIEnv* env, jobject thiz,
+Java_com_crypho_scrypt_RNScryptModule_scryptBridgeJNI( JNIEnv* env, jobject thiz,
 	jbyteArray pass, jcharArray salt, jobject N, jobject r, jobject p, jobject dkLen)
 {
     int i;

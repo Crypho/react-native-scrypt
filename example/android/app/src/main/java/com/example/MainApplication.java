@@ -3,8 +3,8 @@ package com.example;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.crypho.scrypt.RNScryptPackage;
 import com.bitgo.randombytes.RandomBytesPackage;
-import com.reactlibrary.RNScryptPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -25,8 +25,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RandomBytesPackage(),
-            new RNScryptPackage()
+            new RNScryptPackage(),
+            new RandomBytesPackage()
       );
     }
 
