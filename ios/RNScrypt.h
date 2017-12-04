@@ -15,3 +15,4 @@
 @interface RNScrypt : NSObject <RCTBridgeModule>
 
 @end
+  

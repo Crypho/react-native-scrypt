@@ -24,7 +24,7 @@
 RCT_EXPORT_MODULE()
 
 RCT_REMAP_METHOD(scrypt, scrypt:(NSString *)passwd
-                 salt:(NSString *)salt
+                 salt:(NSArray *)salt
                  N:(NSUInteger)N
                  r:(NSUInteger)r
                  p:(NSUInteger)p
@@ -38,8 +38,13 @@ RCT_REMAP_METHOD(scrypt, scrypt:(NSString *)passwd
     const uint8_t *parsedSalt;
     uint8_t *buffer = NULL;
     const char* passphrase = [passwd UTF8String];
-    parsedSalt = (const uint8_t *)[salt UTF8String];
-    saltLength = (size_t) [salt length];
+
+    saltLength = (int) [salt count];
+    buffer = malloc(sizeof(uint8_t) * saltLength);
+    for (i = 0; i < saltLength; ++i) {
+        buffer[i] = (uint8_t)[[salt objectAtIndex:i] integerValue];
+    }
+    parsedSalt = buffer;
 
     @try {
         success = libscrypt_scrypt((uint8_t *)passphrase, strlen(passphrase), parsedSalt, saltLength, N, r, p, hashbuf, dkLen);
