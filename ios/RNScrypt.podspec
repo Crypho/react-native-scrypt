@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'README.md', 'package.json'
   s.source_files   = '**/*.{h,m}'
 
+  s.dependency 'React/Core'
 end
