@@ -1,15 +1,22 @@
-
 {
   "name": "react-native-scrypt",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Native scrypt for React Native",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yiorgis Gozadinos <ggozad@crypho.com>",
   "contributors": [
-    {"name": "Sonny Piers", "email": "sonny@crypho.com"},
-    {"name": "Demetris Manikas", "email": "demetris.manikas@gmail.com"}
+    {
+      "name": "Sonny Piers",
+      "email": "sonny@crypho.com"
+    },
+    {
+      "name": "Demetris Manikas",
+      "email": "demetris.manikas@gmail.com"
+    }
   ],
   "keywords": [
     "react-native",
