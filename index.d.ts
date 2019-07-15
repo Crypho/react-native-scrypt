@@ -1,11 +1,11 @@
 declare module "react-native-scrypt" {
   const scrypt: (
     password: string,
-    salt: string,
+    salt: number[],
     cost?: number,
     blocksize?: number,
     parallel?: number,
     length?: number
-  ) => string;
+  ) => Promise<string>;
   export default scrypt;
 }
