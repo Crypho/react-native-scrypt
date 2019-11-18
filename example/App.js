@@ -22,11 +22,6 @@ function seeded() {
   })
 }
 
-function LOG(...args) {
-  // alert(...args)
-  console.log(...args)
-}
-
 export default class App extends Component {
   constructor(...args) {
     super(...args)
@@ -36,15 +31,11 @@ export default class App extends Component {
     }
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     await seeded()
-    LOG('seeded')
     const salt = sjcl.random.randomWords(2)
-    const libScrypt = await this.libScrypt(salt)
-    LOG('libscrypt')
-    const sjclScrypt = await this.sjclScrypt(salt)
-    LOG('sjcl')
-    LOG(sjclScrypt === libScrypt)
+    await this.libScrypt(salt)
+    await this.sjclScrypt(salt)
   }
 
   async sjclScrypt(salt) {
@@ -52,7 +43,7 @@ export default class App extends Component {
     const sjclScrypt = sjcl.codec.hex.fromBits(
       sjcl.misc.scrypt(password, salt, ...params, length * 8),
     )
-    this.setState({sjcl: `${Date.now() - start}ms`})
+    this.setState({sjcl: `${sjclScrypt} ${Date.now() - start}ms`})
     return sjclScrypt
   }
 
@@ -64,7 +55,7 @@ export default class App extends Component {
       ...params,
       length,
     )
-    this.setState({libscrypt: `${Date.now() - start}ms`})
+    this.setState({libscrypt: `${libScrypt} ${Date.now() - start}ms`})
     return libScrypt
   }
 
