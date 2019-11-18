@@ -1,4 +1,4 @@
-// We require buffer and process to get the crypto module to work
+// // We require buffer and process to get the crypto module to work
 global.Buffer = require('buffer').Buffer
 console.log(global.Buffer)
 global.process = require('process')
@@ -9,9 +9,9 @@ const randomBytes = require('react-native-randombytes').randomBytes
 crypto.randomBytes = randomBytes
 
 // Finally seed it asyncronously with native random bytes.
-crypto.randomBytes(1024/8, (err, buff) => {
-    buff = new Uint32Array(new Uint8Array(buff).buffer)
-    sjcl.random.addEntropy(buff, 1024, 'crypto.randomBytes')
+crypto.randomBytes(1024 / 8, (err, buff) => {
+  buff = new Uint32Array(new Uint8Array(buff).buffer)
+  sjcl.random.addEntropy(buff, 1024, 'crypto.randomBytes')
 })
 
 global.sjcl = require('sjcl')
