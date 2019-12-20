@@ -1,0 +1,6 @@
+node_modules
+.idea
+android/.gradle
+android/gradlew
+android/gradlew.bat
+android/gradle/wrapper
