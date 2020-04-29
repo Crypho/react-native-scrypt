@@ -64,4 +64,37 @@ RCT_REMAP_METHOD(scrypt, scrypt:(NSString *)passwd
     free(buffer);
 }
 
+RCT_REMAP_METHOD(scrypt_b64, scrypt_b64:(NSString *)base64Password
+                 salt:(NSString *)base64Salt
+                 N:(NSUInteger)N
+                 r:(NSUInteger)r
+                 p:(NSUInteger)p
+                 dkLen:(NSUInteger)dkLen
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSData *password = [[NSData alloc] initWithBase64EncodedString:base64Password options:kNilOptions];
+    NSData *salt = [[NSData alloc] initWithBase64EncodedString:base64Salt options:kNilOptions];
+
+    
+    int i, success;
+    
+    uint8_t hashbuf[dkLen];
+    
+    @try {
+        success = libscrypt_scrypt((uint8_t *)[password bytes], [password length], (uint8_t *)[salt bytes], [salt length], N, r, p, hashbuf, dkLen);
+    }
+    @catch (NSException * e) {
+        NSError *error = [NSError errorWithDomain:@"com.crypho.scrypt" code:200 userInfo:@{@"Error reason": @"Error in scrypt"}];
+        reject(@"Failure in scrypt", @"Error", error);
+    }
+
+    NSData *keyData = [NSData dataWithBytes:hashbuf length:dkLen];
+    NSString *keyBase64 = [keyData base64EncodedStringWithOptions:kNilOptions];
+    
+    NSString *result = [NSString stringWithString: keyBase64];
+    
+    resolve(result);
+}
+
 @end
