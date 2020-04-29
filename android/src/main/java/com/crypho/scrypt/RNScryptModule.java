@@ -8,6 +8,8 @@ import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReadableArray;
 
+import android.util.Base64;
+
 public class RNScryptModule extends ReactContextBaseJavaModule {
   static {
     System.loadLibrary("scrypt_jni");
@@ -18,7 +20,7 @@ public class RNScryptModule extends ReactContextBaseJavaModule {
   private static final String SCRYPT_ERROR = "Failure in scrypt";
 
 	public native byte[] scryptBridgeJNI(byte[] pass, char[] salt, Integer N, Integer r, Integer p, Integer dkLen);
-  
+
   public RNScryptModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
@@ -45,6 +47,28 @@ public class RNScryptModule extends ReactContextBaseJavaModule {
       }
   }
 
+  @ReactMethod
+  public void scrypt_b64(
+          String passwd,
+          String salt,
+          Integer N,
+          Integer r,
+          Integer p,
+          Integer dkLen,
+          Promise promise) {
+      try {
+          final byte[] passwordBytes = Base64.decode(passwd, 0);
+          byte[] saltArr = Base64.decode(salt, 0);
+
+          byte[] res = scryptBridgeJNI(passwordBytes, getSalt(saltArr), N, r, p, dkLen);
+
+          String result = Base64.encodeToString(res, 0);
+          promise.resolve(result);
+      } catch (Exception e) {
+          promise.reject(e);
+      }
+  }
+
   private String hexify (byte[] input) {
   int len = input.length;
   char[] result = new char[2 * len];
@@ -61,6 +85,15 @@ public class RNScryptModule extends ReactContextBaseJavaModule {
     char[] result = new char[s];
     for (int i = 0; i < s ; i++) {
       result[i] = (char) src.getInt(i);
+    }
+    return result;
+  }
+
+  private char[] getSalt(byte[] src){
+    int s = src.length;
+    char[] result = new char[s];
+    for (int i = 0; i < s ; i++) {
+        result[i] = (char) src[i];
     }
     return result;
   }
