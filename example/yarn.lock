@@ -5639,7 +5639,7 @@ react-native-randombytes@^3.5.1:
     sjcl "^1.0.3"
 
 "react-native-scrypt@file:..":
-  version "1.1.0"
+  version "1.1.2"
 
 react-native@0.61.4:
   version "0.61.4"

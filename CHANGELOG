@@ -1,6 +1,10 @@
 Changelog
 =========
 
+UNRELEASED - 2020-09-25
+------------------
+- [BREAKING] Changed function signature : passwd, salt and the result are now all passed as hexadecimal strings ;
+
 1.1.2 - 2019-12-20
 ------------------
 

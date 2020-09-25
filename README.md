@@ -46,8 +46,7 @@ This plugin is for use with React Native and allows your application to use scry
 ```javascript
 import scrypt from 'react-native-scrypt';
 
-// passwd must be a string
-// salt must be an array of bytes integers
+// passwd and salt must be encoded in hexadecimal, and the result will be encoded in hexadecimal
 // see example/App.js
 
 const result = await scrypt(passwd, salt[, N=16384, r=8, p=1, dkLen=64])

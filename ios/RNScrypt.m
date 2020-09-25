@@ -24,7 +24,7 @@
 RCT_EXPORT_MODULE()
 
 RCT_REMAP_METHOD(scrypt, scrypt:(NSString *)passwd
-                 salt:(NSArray *)salt
+                 salt:(NSString *)salt
                  N:(NSUInteger)N
                  r:(NSUInteger)r
                  p:(NSUInteger)p
@@ -33,21 +33,37 @@ RCT_REMAP_METHOD(scrypt, scrypt:(NSString *)passwd
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
     int i, success;
-    size_t saltLength;
     uint8_t hashbuf[dkLen];
-    const uint8_t *parsedSalt;
-    uint8_t *buffer = NULL;
-    const char* passphrase = [passwd UTF8String];
 
-    saltLength = (int) [salt count];
-    buffer = malloc(sizeof(uint8_t) * saltLength);
-    for (i = 0; i < saltLength; ++i) {
-        buffer[i] = (uint8_t)[[salt objectAtIndex:i] integerValue];
+    const char *chars_passwd = [passwd UTF8String];
+    int j = 0;
+    long len_passwd = passwd.length;
+    uint8_t *passwd_buffer = malloc(sizeof(uint8_t) * len_passwd / 2);
+
+    char byteChars[3] = {'\0','\0','\0'};
+    unsigned long wholeByte;
+
+    while (j < len_passwd) {
+        byteChars[0] = chars_passwd[j++];
+        byteChars[1] = chars_passwd[j++];
+        wholeByte = strtoul(byteChars, NULL, 16);
+        passwd_buffer[(j / 2) - 1] = wholeByte;
     }
-    parsedSalt = buffer;
+
+    const char *chars_salt = [salt UTF8String];
+    j = 0;
+    long len_salt = salt.length;
+    uint8_t *salt_buffer = malloc(sizeof(uint8_t) * len_salt / 2);
+
+    while (j < len_salt) {
+        byteChars[0] = chars_salt[j++];
+        byteChars[1] = chars_salt[j++];
+        wholeByte = strtoul(byteChars, NULL, 16);
+        salt_buffer[(j / 2) - 1] = wholeByte;
+    }
 
     @try {
-        success = libscrypt_scrypt((uint8_t *)passphrase, strlen(passphrase), parsedSalt, saltLength, N, r, p, hashbuf, dkLen);
+        success = libscrypt_scrypt((uint8_t *) passwd_buffer, len_passwd / 2, (uint8_t *) salt_buffer, len_salt / 2, N, r, p, hashbuf, dkLen);
     }
     @catch (NSException * e) {
         NSError *error = [NSError errorWithDomain:@"com.crypho.scrypt" code:200 userInfo:@{@"Error reason": @"Error in scrypt"}];
@@ -61,7 +77,8 @@ RCT_REMAP_METHOD(scrypt, scrypt:(NSString *)passwd
     }
     NSString *result = [NSString stringWithString: hexResult];
     resolve(result);
-    free(buffer);
+    free(passwd_buffer);
+    free(salt_buffer);
 }
 
 @end
