@@ -35,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/crypho/react-native-scrypt/issues"
   },
-  "homepage": "https://github.com/crypho/react-native-scrypt#readme"
+  "homepage": "https://github.com/crypho/react-native-scrypt#readme",
+  "dependencies": {
+    "buffer": "^5.6.0"
+  }
 }

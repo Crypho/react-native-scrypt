@@ -46,11 +46,14 @@ This plugin is for use with React Native and allows your application to use scry
 ```javascript
 import scrypt from 'react-native-scrypt';
 
-// passwd must be a string
-// salt must be an array of bytes integers
+// With 'legacy' encoding (default): passwd must be a string, salt must be an array of bytes integers
+// With 'hex' encoding: passwd and salt must be string encoded in hexadecimal
+// With 'base64' encoding: passwd and salt must be string encoded in base64
+// With 'buffer' encoding: passwd and salt must be Buffers (in the sense of [`buffer`](https://github.com/feross/buffer/) package)
 // see example/App.js
 
-const result = await scrypt(passwd, salt[, N=16384, r=8, p=1, dkLen=64])
+
+const result = await scrypt(passwd, salt[, N=16384, r=8, p=1, dkLen=64, encoding='legacy'])
 ```
 
 ## LICENSE

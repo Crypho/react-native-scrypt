@@ -6,16 +6,15 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "node-libs-browser": "^2.1.0",
     "react": "16.9.0",
     "react-native": "0.61.4",
     "react-native-randombytes": "^3.5.1",
-    "react-native-scrypt": "file:..",
-    "sjcl": "^1.0.7"
+    "react-native-scrypt": "file:.."
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -24,7 +23,6 @@
     "babel-jest": "^24.9.0",
     "babel-plugin-rewrite-require": "^1.14.5",
     "eslint": "^6.6.0",
-    "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.57.0",
     "react-test-renderer": "16.9.0"
   },

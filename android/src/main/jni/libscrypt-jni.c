@@ -19,7 +19,7 @@ static void throwException(JNIEnv* env, char *msg);
 
 JNIEXPORT jbyteArray JNICALL
 Java_com_crypho_scrypt_RNScryptModule_scryptBridgeJNI( JNIEnv* env, jobject thiz,
-	jbyteArray pass, jcharArray salt, jobject N, jobject r, jobject p, jobject dkLen)
+	jbyteArray pass, jbyteArray salt, jobject N, jobject r, jobject p, jobject dkLen)
 {
     int i;
     char *msg_error;
@@ -31,13 +31,13 @@ Java_com_crypho_scrypt_RNScryptModule_scryptBridgeJNI( JNIEnv* env, jobject thiz
 
     jint passLen = (*env)->GetArrayLength(env, pass);
     if((*env)->ExceptionOccurred(env)) {
-        LOGE("Failed to get passphrase lenght.");
+        LOGE("Failed to get passphrase length.");
         goto END;
     }
 
     jint saltLen = (*env)->GetArrayLength(env, salt);
     if((*env)->ExceptionOccurred(env)) {
-        LOGE("Failed to get salt lenght.");
+        LOGE("Failed to get salt length.");
         goto END;
     }
 
@@ -47,17 +47,9 @@ Java_com_crypho_scrypt_RNScryptModule_scryptBridgeJNI( JNIEnv* env, jobject thiz
         goto END;
     }
 
-    jchar *salt_chars = (*env)->GetCharArrayElements(env, salt, NULL);
+    jbyte *parsedSalt = (*env)->GetByteArrayElements(env, salt, NULL);
     if((*env)->ExceptionOccurred(env)) {
         LOGE("Failed to get salt elements.");
-        goto END;
-    }
-
-    uint8_t *parsedSalt = malloc(sizeof(uint8_t) * saltLen);
-    if (parsedSalt == NULL) {
-        msg_error = "Failed to malloc parsedSalt.";
-        LOGE("%s", msg_error);
-        throwException(env, msg_error);
         goto END;
     }
 
@@ -67,10 +59,6 @@ Java_com_crypho_scrypt_RNScryptModule_scryptBridgeJNI( JNIEnv* env, jobject thiz
         LOGE("%s", msg_error);
         throwException(env, msg_error);
         goto END;
-    }
-
-    for (i = 0; i < saltLen; ++i) {
-        parsedSalt[i] = (uint8_t) salt_chars[i];
     }
 
     if (libscrypt_scrypt(passphrase, passLen, parsedSalt, saltLen, N_i, r_i, p_i, hashbuf, dkLen_i)) {
@@ -103,9 +91,8 @@ Java_com_crypho_scrypt_RNScryptModule_scryptBridgeJNI( JNIEnv* env, jobject thiz
 
     END:
         if (passphrase) (*env)->ReleaseByteArrayElements(env, pass, passphrase, JNI_ABORT);
-        if (salt_chars) (*env)->ReleaseCharArrayElements(env, salt, salt_chars, JNI_ABORT);
+        if (parsedSalt) (*env)->ReleaseByteArrayElements(env, salt, parsedSalt, JNI_ABORT);
         if (hashbuf) free(hashbuf);
-        if (parsedSalt) free(parsedSalt);
 
     return result;
 }

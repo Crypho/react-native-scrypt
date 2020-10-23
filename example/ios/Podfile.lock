@@ -219,7 +219,7 @@ PODS:
     - React-cxxreact (= 0.61.4)
     - React-jsi (= 0.61.4)
     - ReactCommon/jscallinvoker (= 0.61.4)
-  - RNScrypt (1.1.0):
+  - RNScrypt (1.1.2):
     - React
   - Yoga (1.14.0)
 
@@ -342,9 +342,9 @@ SPEC CHECKSUMS:
   React-RCTText: 21934e0a51d522abcd0a275407e80af45d6fd9ec
   React-RCTVibration: 0f76400ee3cec6edb9c125da49fed279340d145a
   ReactCommon: a6a294e7028ed67b926d29551aa9394fd989c24c
-  RNScrypt: 711178949ab15a806e140be2f281076c395a28f7
+  RNScrypt: dd5e6b7daa3b84e2f21e2342efda2f183856ea90
   Yoga: ba3d99dbee6c15ea6bbe3783d1f0cb1ffb79af0f
 
 PODFILE CHECKSUM: 79310af6b976c356911a8a833e9b99c3399fdda3
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
