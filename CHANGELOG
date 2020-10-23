@@ -1,11 +1,14 @@
 Changelog
 =========
 
-UNRELEASED - 2020-10-04
+1.2.0 - 2020-10-23
 ------------------
 - Unified native I/O to hex strings ;
+  [tex0l]
 - Added other encoding methods : 'legacy' which behaves like v1.1.2, 'hex', 'base64' and 'buffer'
+  [tex0l]
 - Update example with tests for a range of test vectors
+  [tex0l]
 
 1.1.2 - 2019-12-20
 ------------------
