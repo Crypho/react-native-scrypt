@@ -1,6 +1,6 @@
 {
   "name": "react-native-scrypt",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Native scrypt for React Native",
   "main": "index.js",
   "types": "index.d.ts",
@@ -16,6 +16,11 @@
     {
       "name": "Demetris Manikas",
       "email": "demetris.manikas@gmail.com"
+    },
+    {
+      "name": "Timothée Rebours",
+      "email": "tim@seald.io",
+      "url": "https://github.com/tex0l"
     }
   ],
   "keywords": [
