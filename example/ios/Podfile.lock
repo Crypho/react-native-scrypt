@@ -219,7 +219,7 @@ PODS:
     - React-cxxreact (= 0.61.4)
     - React-jsi (= 0.61.4)
     - ReactCommon/jscallinvoker (= 0.61.4)
-  - RNScrypt (1.1.2):
+  - RNScrypt (1.2.0):
     - React
   - Yoga (1.14.0)
 
