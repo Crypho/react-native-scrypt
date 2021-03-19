@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Unreleased
+------------------
+- Updated typings ;
+  [tex0l]
+- Changed the version of the `react-native` peerDependency to `*` to accommodate npm@7's new behaviour.
+  [tex0l]
+
 1.2.0 - 2020-10-23
 ------------------
 - Unified native I/O to hex strings ;
