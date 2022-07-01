@@ -27,6 +27,7 @@ android {
 
     defaultConfig {
         minSdkVersion safeExtGet('minSdkVersion', 16)
+        compileSdkVersion safeExtGet('compileSdkVersion', 23)
         targetSdkVersion safeExtGet('targetSdkVersion', 23)
         versionCode 1
         versionName "1.0"
@@ -54,6 +55,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-native:+'
 }
 
